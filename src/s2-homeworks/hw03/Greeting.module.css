@@ -1,22 +1,41 @@
 .greetingForm {
+    padding: 40px 0;
 }
 
 .inputAndButtonContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .error {
+    color: red;
 }
 
 .input {
+    padding: 10px;
+    width: 500px;
+    border: 2px solid #e5e5e5;
+    outline: none;
 }
 
 .input:focus {
 }
 
 .errorInput {
+     padding: 10px;
+    width: 500px;
+    border: 2px solid red;
+    outline: none;
 }
 
 .button {
+    /* height: 30px; */
+    padding: 10px 20px;
+    background-color: #0066CC;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
 }
 
 .button:focus {
