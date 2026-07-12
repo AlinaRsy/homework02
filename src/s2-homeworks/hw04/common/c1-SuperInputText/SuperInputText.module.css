@@ -1,20 +1,57 @@
-.input:focus {
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .input {
+    padding: 10px 14px;
+    border: 2px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
 }
 
-.inputWrapper {
-}
-
+/* Базовый стиль (без ошибки) */
 .superInput {
+    border-color: #6b6bff;
 }
 
+.superInput:focus {
+    border-color: #4a4aff;
+}
+
+/* Стиль с ошибкой */
 .errorInput {
+    border-color: #ff0000;
 }
 
 .errorInput:focus {
+    border-color: #cc0000;
 }
 
+/* Текст ошибки - просто красный */
 .error {
+    color: #ff0000;
+    font-size: 13px;
+}
+
+/* Disabled */
+.input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f5f5f5;
+}
+
+/* Placeholder */
+.input::placeholder {
+    color: #aaa;
 }
