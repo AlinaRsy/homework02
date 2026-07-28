@@ -2,6 +2,15 @@
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 4px 15px #1D212621;
 }
 
 .header h1 {
