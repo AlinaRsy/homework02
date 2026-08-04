@@ -44,8 +44,8 @@
     color: #58ACFF;
 }
 
-
-:global(.active) {
+/* ✅ Активный класс через CSS Module */
+.active {
     color: #0059B2 !important;
     text-decoration: underline !important;
 }
