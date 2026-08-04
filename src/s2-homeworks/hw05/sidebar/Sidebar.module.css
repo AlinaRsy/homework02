@@ -38,7 +38,7 @@
     margin: 80px 40px 40px 40px;
 }
 
-.nav a {
+.nav__link {
     transition: .2s;
     text-decoration: none;
     color: #232323;
@@ -46,20 +46,13 @@
     font-size: 22px;
 }
 
-.nav a:hover {
+.nav__link:hover {
     color: #58ACFF;
 }
 
-/* ✅ Добавляем стили для класса 'active' */
-.nav a.active {
+.active {
     color: #0059B2;
     text-decoration: underline;
-}
-
-/* Альтернатива через глобальный класс */
-:global(.active) {
-    color: #0059B2 !important;
-    text-decoration: underline !important;
 }
 
 .close {
