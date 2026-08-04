@@ -7,10 +7,11 @@
     height: 100%;
     transition: .3s;
     z-index: 100;
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 .sidebar.open {
-    /* display: block; */
     left: 0;
 }
 
@@ -20,14 +21,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.538);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
 }
 
 .nav {
     display: flex;
     flex-direction: column;
     gap: 35px;
-    margin: 60px;
+    margin: 80px 40px 40px 40px;
 }
 
 .nav a {
@@ -42,10 +44,12 @@
     color: #58ACFF;
 }
 
-.nav a.active {
-    color: #0059B2;
-    text-decoration: underline;
+
+:global(.active) {
+    color: #0059B2 !important;
+    text-decoration: underline !important;
 }
+
 .close {
     cursor: pointer;
     background-color: transparent;
@@ -56,4 +60,6 @@
 }
 
 .close img {
+    width: 24px;
+    height: 24px;
 }
