@@ -1,18 +1,19 @@
+/* Sidebar.module.css */
 .sidebar {
     position: fixed;
-    left: -100%;
     top: 0;
-    background-color: white;
+    left: 0;
     width: 317px;
     height: 100%;
-    transition: .3s;
+    background-color: white;
+    visibility: hidden;        /* ← Скрыт */
     z-index: 100;
     padding: 20px 0;
     box-sizing: border-box;
 }
 
 .sidebar.open {
-    left: 0;
+    visibility: visible;       /* ← Показываем */
 }
 
 .background {
@@ -22,7 +23,12 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;        /* ← Скрыт */
     z-index: 99;
+}
+
+.background.open {
+    visibility: visible;       /* ← Показываем */
 }
 
 .nav {
@@ -44,8 +50,14 @@
     color: #58ACFF;
 }
 
-/* ✅ Активный класс через CSS Module */
-.active {
+/* ✅ Добавляем стили для класса 'active' */
+.nav a.active {
+    color: #0059B2;
+    text-decoration: underline;
+}
+
+/* Альтернатива через глобальный класс */
+:global(.active) {
     color: #0059B2 !important;
     text-decoration: underline !important;
 }
