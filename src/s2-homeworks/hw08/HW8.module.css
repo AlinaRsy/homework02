@@ -5,6 +5,7 @@
 }
 
 .users {
+    width: 90%;
 }
 
 .buttonsContainer {
@@ -14,9 +15,11 @@
 }
 
 .thead {
+    background-color: rgb(213, 213, 213);
 }
 
 .nameCol {
+    width: 40%;
 }
 
 .ageCol {
