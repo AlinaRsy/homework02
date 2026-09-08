@@ -47,6 +47,9 @@ importers:
       gh-pages:
         specifier: 4.0.0
         version: 4.0.0
+      identity-obj-proxy:
+        specifier: ^3.0.0
+        version: 3.0.0
       react:
         specifier: 18.2.0
         version: 18.2.0
