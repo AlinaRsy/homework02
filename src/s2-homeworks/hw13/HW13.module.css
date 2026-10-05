@@ -1,22 +1,42 @@
+/* HW13.module.css */
 .buttonsContainer {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .responseContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .imageContainer {
+  flex-shrink: 0;
 }
 
 .image {
+  width: 120px;
+  height: 120px;
 }
 
-.textContainer{
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .code {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .text {
+  font-size: 16px;
 }
+
 .info {
+  font-size: 14px;
+  color: #888;
 }

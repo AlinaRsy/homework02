@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
@@ -20,6 +20,7 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+    const [isLoading, setIsLoading] = useState(false);
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
@@ -30,18 +31,35 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
-
+        setIsLoading(true)
         axios
-            .post(url, {success: x})
+            .post(url, { success: x })
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                // дописать
+                setText('...всё ок) код 200 - обычно означает что скорее всего всё ок)')
 
             })
             .catch((e) => {
                 // дописать
-
+                const status = e.response?.status
+                if (status === 400) {
+                    setCode('Ошибка 400!');
+                    setImage(error400);
+                    setText('Ты не отправил success в body вообще! ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!');
+                } else if (status === 500) {
+                    setCode('Ошибка 500!');
+                    setImage(error500);
+                    setText('эмитация ошибки на сервере ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)');
+                } else {
+                    setCode('Error!');
+                    setImage(errorUnknown);
+                    setText('Network Error AxiosError');
+                }
+            })
+            .finally(() => {
+                setInfo('')
+                setIsLoading(false)
             })
     }
 
@@ -55,7 +73,8 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={isLoading}
+                    // дописать
 
                     >
                         Send true
@@ -64,7 +83,8 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={isLoading}
+                    // дописать
 
                     >
                         Send false
@@ -73,7 +93,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={isLoading}
+                    // дописать
 
                     >
                         Send undefined
@@ -82,7 +103,8 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
+                        disabled={isLoading}
+                    // дописать
 
                     >
                         Send null
@@ -91,7 +113,7 @@ const HW13 = () => {
 
                 <div className={s.responseContainer}>
                     <div className={s.imageContainer}>
-                        {image && <img src={image} className={s.image} alt="status"/>}
+                        {image && <img src={image} className={s.image} alt="status" />}
                     </div>
 
                     <div className={s.textContainer}>
